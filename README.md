@@ -28,7 +28,6 @@ Registry:
 
 Switch AndroidStudio's `Active Build Variant`. We develop using the following categories:
 
-[About booco application environment](https://alc-tec-service.atlassian.net/wiki/spaces/BO/pages/906199102/Android#%5CuD83D%5CuDCD8-%E8%AA%AC%E6%98%8E)
 
 ### 3. Settings pre-commit
 
@@ -55,19 +54,14 @@ Check that the following settings are reflected in `$PROJECT_ROOT/.git/config`
 
 #### *Only for those that need
 
-When you build for production, you need to receive a keystore file from an ALC employee.
-
 ## Coding convention
 
 Please write code according to Lint in Android Studio.
-[BOOCO-460 Android coding conventions and Lint tools](https://alc-tec-service.atlassian.net/browse/BOOCO-460)
 
 
 ## Branch strategy
 
 We are operating with the best of GitHub Flow and git-flow.
-
-[BOOCO-449 About branch strategy](https://alc-tec-service.atlassian.net/browse/BOOCO-449)
 
 
 ## Development tools
@@ -75,28 +69,14 @@ We are operating with the best of GitHub Flow and git-flow.
 
 ### CI/CD
 
-- [Bitrise](https://app.bitrise.io/dashboard)
-
 Used to distribute develop and stating to Firebase App Distribution, and production to Google Play Console.
 
 
 ### Error visualization and monitoring tools
 
-- [Sentry](https://sentry.io/organizations/alc-co-jp/projects/)
 
 You can check the stack trace at the time of error occurrence, request data, etc. on the dashboard.
 
 
-### QA
-
-- [Firebase](https://console.firebase.google.com/u/0/project/booco-app/overview?pli=1)
-- [Google Play Console](https://play.google.com/console/u/0/developers/4662629058136097219/app-list?onboardingflow=signup)
-
-
 ## Reference
-
-- [Android refactoring policy review](https://alc-tec-service.atlassian.net/browse/BOOCO-361)
-- [Android documentation](https://alc-tec-service.atlassian.net/wiki/spaces/BO/pages/832339984/Android)
-- [Android Flow of obtaining answer data](https://alc-tec-service.atlassian.net/wiki/spaces/BO/pages/831881237/Android)
-- [How to port from iOS to Android](https://alc-tec-service.atlassian.net/wiki/spaces/BO/pages/833257493/iOS+Android)
 
