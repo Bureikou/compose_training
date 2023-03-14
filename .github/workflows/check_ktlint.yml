@@ -1,0 +1,43 @@
+name: check_ktlint
+on: [pull_request]
+jobs:
+  ktlint:
+    name: ktlint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+      - name: Cache bundle directory
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+      - name: install danger
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Setup keystore.properties
+        run: |
+          echo "storePassword=booco" >> keystore.properties
+          echo "keyPassword=booco" >> keystore.properties
+          echo "keyAlias=booco" >> keystore.properties
+          echo "storeFile=booco_keystore.jks" >> keystore.properties
+      - name: Run ktlint
+        run: ./gradlew ktlint
+        id: ktlint
+
+      - name: report danger
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.github_token }}
+        run: bundle exec danger

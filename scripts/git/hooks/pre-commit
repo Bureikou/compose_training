@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "START ktlint..."
+./gradlew ktlint
+if [ $? -ne 0 ]; then exit 1; fi
